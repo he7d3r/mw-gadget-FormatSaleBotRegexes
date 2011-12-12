@@ -11,7 +11,8 @@ if ( mw.config.get( 'wgTitle' ) === 'Salebot/Config' && mw.config.get( 'wgAction
 		};
 		$('#bodyContent').find('pre').html(function(i,html){
 			return html.replace(
-				/([\-+#].+?) (\/.+?\/[gmi;]*) *(#.+)?/g,
+				// Ver linha 137 de [https://fisheye.toolserver.org/browse/gribeco/salebot2/branches/utf8/vandalism.pl?r=152]
+				/\s*([\-+#]?\d+)\s*(\/.+\/) *(#.+)?/g,
 				function(match, p1, p2, p3){
 					var level = parseInt( p1, 10 );
 					if ( isNaN(level) ) {
