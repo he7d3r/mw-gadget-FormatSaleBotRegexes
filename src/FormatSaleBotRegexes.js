@@ -1,3 +1,13 @@
+/**
+ * Format Salebot regexes on [[w:User:Salebot/Config]]
+ * @author: [[User:Helder.wiki]]
+ * @tracking: [[Special:GlobalUsage/User:Helder.wiki/Tools/FormatSaleBotRegexes.js]] ([[File:User:Helder.wiki/Tools/FormatSaleBotRegexes.js]])
+ */
+/*jslint browser: true, white: true, regexp: true */
+/*global jQuery, mediaWiki */
+( function ( $, mw /* , undefined */ ) {
+'use strict';
+
 function formatSaleBotRegexes(){
 	var color = {
 		0 : 'transparent',
@@ -12,14 +22,13 @@ function formatSaleBotRegexes(){
 		return html.replace(
 			// Ver linha 137 de [https://fisheye.toolserver.org/browse/gribeco/salebot2/branches/utf8/vandalism.pl?r=152]
 			/\s*([\-+#]?\d+)\s*(\/.+\/) *(#.+)?/g,
-			function(match, p1, p2, p3){
+			function(match, p1 /* , p2, p3 */ ){
 				var level = parseInt( p1, 10 );
 				if ( isNaN(level) ) {
 					return match;
-				} else {
-					level = Math.abs( level );
-					level = level - (level % 5);
 				}
+				level = Math.abs( level );
+				level = level - (level % 5);
 				return '<span style="background-color:' + color[ level] + ';">' +
 					match + '</span>';
 			}
@@ -27,6 +36,8 @@ function formatSaleBotRegexes(){
 	});
 }
 
-if ( mw.config.get( 'wgTitle' ) === 'Salebot/Config' && mw.config.get( 'wgAction' ) == 'view') {
+if ( mw.config.get( 'wgTitle' ) === 'Salebot/Config' && mw.config.get( 'wgAction' ) === 'view') {
 	$(formatSaleBotRegexes);
 }
+
+}( jQuery, mediaWiki ) );
