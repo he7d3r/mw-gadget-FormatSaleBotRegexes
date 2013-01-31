@@ -29,12 +29,12 @@ function formatSaleBotRegexes(){
 					if ( isNaN(level) ) {
 						return match;
 					}
-				level = Math.abs( level );
-				level = level - (level % 5);
-				return '<span style="background-color:' +
-					color[ level ] + ';">' +
-					match + '</span>';
-			}
+					level = Math.abs( level );
+					level = level - (level % 5);
+					return '<span style="background-color:' +
+						color[ level ] + ';">' +
+						match + '</span>';
+				}
 			)
 		);
 	});
