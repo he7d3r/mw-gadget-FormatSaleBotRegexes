@@ -19,24 +19,24 @@ function formatSaleBotRegexes(){
 			30 : '#F66'
 		};
 	$('#mw-content-text').find('pre').each(function(){
-	var $pre = $( this );
-	$pre.html(
-		$pre.html().replace(
-			// Ver linha 137 de [https://fisheye.toolserver.org/browse/gribeco/salebot2/branches/utf8/vandalism.pl?r=152]
-			/\s*([\-+#]?\d+)\s*(\/.+\/) *(#.+)?/g,
-			function( match, p1 /* , p2, p3 */ ){
-				var level = parseInt( p1, 10 );
-				if ( isNaN(level) ) {
-					return match;
-				}
+		var $pre = $( this );
+		$pre.html(
+			$pre.html().replace(
+				// Ver linha 137 de [https://fisheye.toolserver.org/browse/gribeco/salebot2/branches/utf8/vandalism.pl?r=152]
+				/\s*([\-+#]?\d+)\s*(\/.+\/) *(#.+)?/g,
+				function( match, p1 /* , p2, p3 */ ){
+					var level = parseInt( p1, 10 );
+					if ( isNaN(level) ) {
+						return match;
+					}
 				level = Math.abs( level );
 				level = level - (level % 5);
 				return '<span style="background-color:' +
 					color[ level ] + ';">' +
 					match + '</span>';
 			}
-		)
-	);
+			)
+		);
 	});
 }
 
