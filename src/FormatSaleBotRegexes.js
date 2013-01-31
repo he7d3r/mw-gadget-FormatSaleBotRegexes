@@ -17,8 +17,9 @@ function formatSaleBotRegexes(){
 			20 : '#FCA',
 			25 : '#F99',
 			30 : '#F66'
-		},
-		$pre = $('#mw-content-text').find('pre');
+		};
+	$('#mw-content-text').find('pre').each(function(){
+	var $pre = $( this );
 	$pre.html(
 		$pre.html().replace(
 			// Ver linha 137 de [https://fisheye.toolserver.org/browse/gribeco/salebot2/branches/utf8/vandalism.pl?r=152]
@@ -36,6 +37,7 @@ function formatSaleBotRegexes(){
 			}
 		)
 	);
+	});
 }
 
 if ( mw.config.get( 'wgTitle' ) === 'Salebot/Config' && mw.config.get( 'wgAction' ) === 'view') {
