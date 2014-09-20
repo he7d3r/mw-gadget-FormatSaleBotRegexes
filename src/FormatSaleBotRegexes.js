@@ -2,7 +2,6 @@
  * Format Salebot regexes on [[w:User:Salebot/Config]]
  * @author: Helder (https://github.com/he7d3r)
  * @license: CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0/>
- * @tracking: [[Special:GlobalUsage/User:Helder.wiki/Tools/FormatSaleBotRegexes.js]] ([[File:User:Helder.wiki/Tools/FormatSaleBotRegexes.js]])
  */
 /*jslint browser: true, white: true, regexp: true */
 /*global mediaWiki, jQuery*/
